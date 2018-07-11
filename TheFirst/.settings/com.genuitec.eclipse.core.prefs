@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/indexpicture/js,WebRoot/js/jquery.min.js,WebRoot/js/xcConfirm.js,WebRoot/js/jquery-1.11.1.min.js,WebRoot/js/jquery.min.calendar.js
+validator.Revalidate=true
+validator.Unchecked=

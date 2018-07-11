@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple"/> 
+	<constant name="struts.locale" value="zh_CN" />
+	<constant name="struts.i18n.encoding" value="gb2312" />
+	<constant name="struts.ui.theme" value="simple"/>
+	
+	<package name="crud" extends="struts-default" namespace="/">
+		<!-- <action name="TestToList" class="com.tyut.familymanage.action.TestAction"
+			method="toList">
+			<result name="toList">/index.jsp</result>
+		</action> -->
+<!-- 用户注册  -->	
+		<action name="UserAdd" class="com.tyut.familymanage.action.UserAction"
+			method="add">
+			<result name="success">/UserLoginSuccess.jsp</result>
+		</action>
+<!-- 用户登录 -->	
+	    <action name="LoginValidate" class="com.tyut.familymanage.action.UserAction"
+				method="toLogin">
+				<result name="toLogin">/index.jsp</result>
+				<result name="toLoginFalse">Login.jsp</result>
+		</action>
+		<action name="UserLogin" class="com.tyut.familymanage.action.UserAction"
+			method="login">
+			<result name="login">/index.jsp</result>
+		</action>
+<!-- 用户忘记密码修改密码 -->
+        <action name="UpdatePassword" class="com.tyut.familymanage.action.UserAction"
+			method="UpdatePassword">
+			<result name="UpdateSuccess">/UserLogin.jsp</result>
+		</action>	
+
+	</package>
+	
+		
+<!-- 页面跳转 -->
+	<package name="page" extends="struts-default">
+		<action name="index" class="com.tyut.familymanage.action.pages"
+			method="index">
+			<result>/index.jsp</result>
+		</action>
+		<action name="moneyout" class="com.tyut.familymanage.action.pages"
+			method="go_money_out">
+			<result name="toList">/moneyout.jsp</result>
+		</action>
+		<action name="moneyin" class="com.tyut.familymanage.action.pages"
+			method="go_money_in">
+			<result name="toList">/moneyin.jsp</result>
+		</action>
+		<action name="moneytools" class="com.tyut.familymanage.action.pages"
+			method="go_money_tools">
+			<result>/moneytools.jsp</result>
+		</action>
+		<action name="moneyfenxi" class="com.tyut.familymanage.action.pages"
+			method="go_money_fenxi">
+			<result>/moneyfenxi.jsp</result>
+		</action>	
+		<action name="familymumber" class="com.tyut.familymanage.action.pages"
+			method="go_money_number">
+			<result name="toList">/familymumber.jsp</result>
+		</action>
+	</package>
+
+	
+		<package name="model" extends="struts-default">		
+<!-- 支出添加   -->	
+		<action name="Money_out_Add" class="com.tyut.familymanage.action.money_out_action"
+			method="add">
+			<result name="toList">/moneyout.jsp</result>
+		</action>
+<!-- 显示全部支出 -->
+		<action name="Money_out_View" class="com.tyut.familymanage.action.money_out_action"
+			method="view">
+			<result name="toList">/moneyout.jsp</result>
+		</action>
+<!-- 删除支出 -->
+		<action name="Money_out_Delete" class="com.tyut.familymanage.action.money_out_action"
+			method="delete">
+			<result name="toList">/moneyout.jsp</result>
+		</action>
+<!-- 查看详情 -->
+		<action name="Money_out_toUpdate" class="com.tyut.familymanage.action.money_out_action"
+			method="toupdate">
+			<result name="toUpdate">/moneyout_update.jsp</result>
+		</action>
+<!-- 修改支出 -->
+		<action name="Money_out_Update" class="com.tyut.familymanage.action.money_out_action"
+			method="update">
+			<result name="toList">/moneyout.jsp</result>
+		</action>
+<!-- 查询支出 -->
+		<action name="Money_out_Query" class="com.tyut.familymanage.action.money_out_action"
+			method="query">
+			<result name="toList">/moneyout.jsp</result>
+		</action>		
+
+
+		
+<!-- 收入添加   -->	
+		<action name="Money_in_Add" class="com.tyut.familymanage.action.money_in_action"
+			method="add">
+			<result name="toList">/moneyin.jsp</result>
+		</action>
+<!-- 显示全部收入 -->
+		<action name="Money_in_View" class="com.tyut.familymanage.action.money_in_action"
+			method="view">
+			<result name="toList">/moneyin.jsp</result>
+		</action>
+<!-- 删除收入 -->
+		<action name="Money_in_Delete" class="com.tyut.familymanage.action.money_in_action"
+			method="delete">
+			<result name="toList">/moneyin.jsp</result>
+		</action>
+<!-- 查看详情 -->
+		<action name="Money_in_toUpdate" class="com.tyut.familymanage.action.money_in_action"
+			method="toupdate">
+			<result name="toUpdate">/moneyin_update.jsp</result>
+		</action>
+<!-- 修改收入 -->
+		<action name="Money_in_Update" class="com.tyut.familymanage.action.money_in_action"
+			method="update">
+			<result name="toList">/moneyin.jsp</result>
+		</action>
+<!-- 查询收入-->
+		<action name="Money_in_Query" class="com.tyut.familymanage.action.money_in_action"
+			method="query">
+			<result name="toList">/moneyin.jsp</result>
+		</action>			
+		
+	</package>
+	
+</struts>    
